@@ -191,7 +191,18 @@ OK (8 tests, 8 assertions)
 
 Тестовая база [_394_sapskii3] удалена
 ```
+---
 
+## Для запуска
+
+1 прописать в constants.generated.php
+```
+define('SITE_ID', 394);
+```
+2 запустить
+```
+vendor/bin/codecept run tests/codeception/unit/
+```
 
 ---?gist=onetapbeyond/494e0fecaf0d6a2aa2acadfb8eb9d6e8&lang=scala&title=Scala GIST
 
