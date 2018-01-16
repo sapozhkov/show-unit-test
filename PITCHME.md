@@ -1,16 +1,17 @@
-# Black
+# Модульное тестирование
 
 ### A GitPitch Presentation Template
 
 ---
 
-## Tips!
+## Виды автоматического тестирования,
+применяемые у нас
 
 <br>
 
-@fa[arrows gp-tip](Press F to go Fullscreen)
-
-@fa[microphone gp-tip](Press S for Speaker Notes)
+- модульное тестирование
+- функциональное тестирование 
+- приемочное тестирование
 
 ---
 
