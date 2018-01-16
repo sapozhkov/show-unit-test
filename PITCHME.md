@@ -13,14 +13,15 @@
 
 ---
 
-## Template Features
+## Регрессио́нное тести́рование 
 
-- Code Presenting |
-- Repo Source, Static Blocks, GIST |
-- Custom CSS Styling |
-- Slideshow Background Image |
-- Slide-specific Background Images |
-- Custom Logo, TOC, and Footnotes |
+(англ. regression testing, от лат. regressio — движение назад)
+
+---
+
+## Модульное тестирование
+
+(англ. unit testing)
 
 ---?code=src/go/server.go&lang=golang&title=Golang File
 
