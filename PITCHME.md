@@ -34,6 +34,7 @@
 ---
 
 ## Инструменты модульного тестирования
+(применяемые у нас)
 
 - PhpUnit
 - Codeception
@@ -72,46 +73,99 @@
 
 ---
 
+## Подход TDD
 
-
----?code=src/go/server.go&lang=golang&title=Golang File
-
-@[1,3-6](Present code found within any repo source file.)
-@[8-18](Without ever leaving your slideshow.)
-@[19-28](Using GitPitch code-presenting with (optional) annotations.)
+Test-Driven Development
 
 ---
 
-@title[JavaScript Block]
+@title[Пример теста]
 
-<p><span class="slide-title">JavaScript Block</span></p>
+<p><span class="slide-title">Пример</span></p>
 
-```javascript
-// Include http module.
-var http = require("http");
+```php
+namespace unit\base;
 
-// Create the server. Function passed as parameter
-// is called on every request made.
-http.createServer(function (request, response) {
-  // Attach listener on end event.  This event is
-  // called when client sent, awaiting response.
-  request.on("end", function () {
-    // Write headers to the response.
-    // HTTP 200 status, Content-Type text/plain.
-    response.writeHead(200, {
-      'Content-Type': 'text/plain'
-    });
-    // Send data and end response.
-    response.end('Hello HTTP!');
-  });
+use skewer\base\SysVar;
 
-// Listen on the 8080 port.
-}).listen(8080);
+class SysVarTest extends \PHPUnit_Framework_TestCase
+{
+    /**
+     * @var SysVar
+     */
+    protected $object;
+
+    /**
+     * Sets up the fixture, for example, opens a network connection.
+     * This method is called before a test is executed.
+     */
+    protected function setUp()
+    {
+        $this->object = new SysVar;
+    }
+
+    /**
+     * Tears down the fixture, for example, closes a network connection.
+     * This method is called after a test is executed.
+     */
+    protected function tearDown()
+    {
+    }
+
+    /**
+     * Проверка метода запроса значений    
+     * @covers \skewer\base\SysVar::get()
+     */
+    public function testGet()
+    {
+
+        $this->assertSame(null, SysVar::get(''), 'Неверный результат для пустого значения!');
+
+        $this->assertSame(null, SysVar::get(5), 'Неверный результат для некорректных входных параметров. Type:int');
+
+        $sVarValue = 'test1';
+        $sVarKey = 'test2';
+
+        SysVar::set($sVarKey, $sVarValue);
+        $this->assertSame($sVarValue, SysVar::get($sVarKey), 'Неверный результат!');
+
+    }
+
+    /**
+     * Данные для проверки сохранения
+     */         
+    public function providerGet() {
+        return [
+            ['int', 123, '123'],
+            ['str', 'qwe', 'qwe']
+        ];
+    }
+    
+    /**
+     * @covers \skewer\base\SysVar::get
+     * @dataProvider providerGet
+     */         
+    public function testGetVal( $name, $in, $out ) {
+        SysVar::set($name, $in);
+        $this->assertSame($out, SysVar::get($name));   
+    }
+
+}
 ```
 
-@[1,2](You can present code inlined within your slide markdown too.)
-@[9-17](Displayed using code-syntax highlighting just like your IDE.)
-@[19-20](Again, all of this without ever leaving your slideshow.)
+@[1](namespace должен соответствовать расположению тестируемого класса)
+@[5](SysVar (имя тестируемого класса) + Test)
+@[12-27](методы выполныемые до и после КАЖДОГО теста)
+@[19-46](обычный тест)
+@[31](covers - указание на проверяемый метод)
+@[33](test + Get(имя метода))
+@[36](типовое "утверждение" (expected, actual, error_text))
+@[43](использование других методов класса)
+@[48-56](провайдер данных для теста)
+@[58-65](тест, работающий с провайдером данных)
+@[53](один набор данных)
+@[60](имя метода с данными)
+@[62](метод принимает переменные)
 
 ---?gist=onetapbeyond/494e0fecaf0d6a2aa2acadfb8eb9d6e8&lang=scala&title=Scala GIST
 
