@@ -195,11 +195,11 @@ OK (8 tests, 8 assertions)
 
 ## Для запуска
 
-1 прописать в constants.generated.php
+1. прописать в constants.generated.php
 ```
 define('SITE_ID', 394);
 ```
-2 запустить
+2. запустить
 ```
 vendor/bin/codecept run tests/codeception/unit/
 ```
