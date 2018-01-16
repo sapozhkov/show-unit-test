@@ -166,6 +166,7 @@ class SysVarTest extends \PHPUnit_Framework_TestCase
 @[53](один набор данных)
 @[60](имя метода с данными)
 @[62](метод принимает переменные)
+@[58-65](тест, работающий с провайдером данных)
 
 ---?gist=onetapbeyond/494e0fecaf0d6a2aa2acadfb8eb9d6e8&lang=scala&title=Scala GIST
 
