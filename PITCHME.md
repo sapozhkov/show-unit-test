@@ -168,6 +168,31 @@ class SysVarTest extends \PHPUnit_Framework_TestCase
 @[62](метод принимает переменные)
 @[58-65](тест, работающий с провайдером данных)
 
+---
+
+```bash
+$: vendor/bin/codecept run tests/codeception/unit/components/Cron/ApiTest.php
+Codeception PHP Testing Framework v2.3.7
+Powered by PHPUnit 4.8.36 by Sebastian Bergmann and contributors.
+Тестовая база [_394_sapskii3] создана
+
+
+Unit Tests (8) ---------------------------------------------------------------------------------------------------------
+✔ ApiTest: Run task | #0 (0.00s)
+✔ ApiTest: Run task | #1 (0.00s)
+✔ ApiTest: Set test urls (0.00s)
+✔ ApiTest: Get test urls (0.00s)
+------------------------------------------------------------------------------------------------------------------------
+
+
+Time: 1.04 seconds, Memory: 21.50MB
+
+OK (8 tests, 8 assertions)
+
+Тестовая база [_394_sapskii3] удалена
+```
+
+
 ---?gist=onetapbeyond/494e0fecaf0d6a2aa2acadfb8eb9d6e8&lang=scala&title=Scala GIST
 
 @[23](You can even present code found within any GitHub GIST.)
